@@ -186,7 +186,6 @@ amazon-marketplace-intelligence/
 
 🚧 **In Progress**
 
-This project is part of my **30-Day Data Analytics Bootcamp** where I am building end-to-end analytics projects designed to simulate real-world business problems.
 
 ---
 
@@ -194,6 +193,5 @@ This project is part of my **30-Day Data Analytics Bootcamp** where I am buildin
 
 **Ishan Mahesh Phadnis**
 
-Aspiring Data Analyst | Business Analyst
 
 Building practical analytics projects using SQL, Python, Tableau, and Business Intelligence.
