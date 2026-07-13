@@ -1,51 +1,51 @@
-# Amazon-Marketplace-Intelligence
-End-to-end business analytics project analyzing Amazon marketplace data using SQL, Python, Tableau, and business intelligence.
-# 📊 Amazon Marketplace Intelligence
+# 🛒 Flipkart Marketplace Intelligence
 
-> **End-to-end Business Analytics Project using SQL, Python, Tableau, and Business Intelligence**
+> **End-to-End Business Analytics Project using SQL, Python, Tableau, and Generative AI**
 
 ---
 
 # 📢 Executive Summary
 
-Imagine I have joined Amazon as a Business Analyst.
+This project simulates the role of a Business Analyst working at Flipkart's Marketplace Analytics team.
 
-The leadership team wants to better understand marketplace performance by analyzing customer ratings, pricing strategy, discounts, product categories, and customer reviews.
+The objective is to analyze customer behavior, product performance, order trends, and return patterns to uncover actionable business insights that improve customer satisfaction, operational efficiency, and business performance.
 
-My objective is to transform raw marketplace data into meaningful business insights and provide actionable recommendations that can improve customer satisfaction and drive business growth.
-
-This project follows the complete analytics lifecycle—from understanding the business problem to delivering executive recommendations.
+Using SQL, Python, Tableau, and Generative AI, this project follows the complete analytics lifecycle—from understanding business requirements to presenting executive-level recommendations.
 
 ---
 
-# 🎯 Business Objective
+# 🎯 Business Problem
 
-This project aims to answer important business questions including:
+Flipkart processes thousands of customer orders every day.
 
-- Which product categories perform the best?
-- Which products receive the highest customer ratings?
-- Do larger discounts lead to higher customer ratings?
-- Which categories generate the highest customer engagement?
-- Which products provide the best value for money?
-- How can Amazon improve customer satisfaction using data?
+Leadership wants to answer critical business questions such as:
+
+- Which products drive the most revenue?
+- Which products have unusually high return rates?
+- Which customers generate the highest lifetime value?
+- Which categories perform best?
+- Which products should receive additional marketing investment?
+- How can return rates be reduced?
+
+As the Business Analyst, my responsibility is to transform raw transactional data into actionable business insights that help leadership make data-driven decisions.
 
 ---
 
 # 📂 Dataset
 
-**Source:** Kaggle - Amazon Sales Dataset
+**Source:** Flipkart Marketplace Dataset
 
-The dataset contains information on more than 1,000 Amazon products including:
+The project uses multiple relational tables representing a real-world e-commerce marketplace.
 
-- Product Information
-- Product Categories
-- Actual Price
-- Discounted Price
-- Discount Percentage
-- Customer Ratings
-- Rating Count
-- Product Reviews
-- Product Descriptions
+### Tables
+
+- Customers
+- Orders
+- Order Items
+- Products
+- Return Status
+
+This multi-table structure allows advanced SQL analysis using joins, CTEs, window functions, and business KPIs.
 
 ---
 
@@ -54,117 +54,173 @@ The dataset contains information on more than 1,000 Amazon products including:
 - SQL (Google BigQuery)
 - Python
 - Pandas
-- NumPy
-- Matplotlib
 - Tableau Public
 - Git
 - GitHub
+- Generative AI (Documentation & Business Insights)
 
 ---
 
 # 📈 Project Workflow
 
-### Phase 1 — Business Understanding
+## Phase 1 — Business Understanding
 
-- Understand the business problem
-- Define business objectives
-- Identify Key Performance Indicators (KPIs)
+- Understand business requirements
+- Identify stakeholders
+- Define KPIs
+- Create business questions
 
 ---
 
-### Phase 2 — Data Cleaning
+## Phase 2 — Data Modeling
+
+- Understand table relationships
+- Identify Primary Keys
+- Identify Foreign Keys
+- Build Entity Relationship Diagram (ERD)
+
+---
+
+## Phase 3 — Data Cleaning
 
 - Handle missing values
 - Remove duplicates
-- Clean text fields
-- Standardize pricing columns
+- Standardize columns
+- Validate relationships
 
 ---
 
-### Phase 3 — Exploratory Data Analysis (EDA)
+## Phase 4 — SQL Business Analysis
 
+Analyze business questions using:
+
+- Joins
+- CTEs
+- Window Functions
+- Aggregations
+- Ranking Functions
+
+---
+
+## Phase 5 — Python Analysis
+
+- Exploratory Data Analysis
+- Customer Analysis
 - Product Analysis
-- Category Analysis
-- Rating Analysis
-- Discount Analysis
-- Customer Review Analysis
+- Return Analysis
+- Feature Engineering
 
 ---
 
-### Phase 4 — SQL Business Analysis
+## Phase 6 — Dashboard Development
 
-Answer business questions using SQL.
-
----
-
-### Phase 5 — Python Analysis
-
-Perform deeper analysis using Python and Pandas.
+Build an executive Tableau dashboard to monitor marketplace performance.
 
 ---
 
-### Phase 6 — Dashboard Development
+## Phase 7 — Executive Recommendations
 
-Create an interactive Tableau dashboard for business stakeholders.
-
----
-
-### Phase 7 — Executive Recommendations
-
-Provide business recommendations supported by data.
+Present data-driven recommendations for leadership.
 
 ---
 
 # 📊 Key Performance Indicators (KPIs)
 
-- Average Product Rating
-- Average Discount Percentage
-- Number of Customer Reviews
+### Sales KPIs
+
+- Total Revenue
+- Average Order Value (AOV)
+- Total Orders
+
+### Customer KPIs
+
+- Total Customers
+- Repeat Customer Rate
+- Customer Lifetime Value (Basic)
+
+### Product KPIs
+
+- Best Selling Products
 - Category Performance
-- Customer Engagement
 - Product Popularity
-- Price Distribution
+
+### Returns KPIs
+
+- Return Rate
+- Return Rate by Category
+- Return Rate by Product
 
 ---
 
 # ❓ Business Questions
 
-Some of the questions this project aims to answer:
+This project aims to answer questions such as:
 
-- Which product categories generate the highest customer engagement?
-- Which products receive the highest ratings?
-- Which categories have the highest discounts?
-- Is there a relationship between discounts and ratings?
-- Which products offer the highest perceived value?
-- Which categories have the most customer reviews?
-- Which products should Amazon promote more aggressively?
+### Customer Analytics
+
+- Who are our highest-value customers?
+- Which customers purchase most frequently?
+- Which customers have the highest return rates?
+
+### Product Analytics
+
+- Which products generate the highest revenue?
+- Which products sell the least?
+- Which categories perform best?
+
+### Order Analytics
+
+- What is the average order value?
+- Which months generate the highest sales?
+- Which customers place repeat orders?
+
+### Returns Analytics
+
+- Which products have the highest return rates?
+- Which categories experience the most returns?
+- Which customers frequently return products?
+
+---
+
+# 🤖 Generative AI Integration
+
+Generative AI is used to assist with:
+
+- Business hypothesis generation
+- SQL optimization
+- Executive summaries
+- Business recommendations
+- Documentation
+
+All AI-generated outputs are manually validated before inclusion in the project.
 
 ---
 
 # 📁 Repository Structure
 
 ```
-amazon-marketplace-intelligence/
-│
-├── README.md
-├── data/
-├── sql/
-├── python/
-├── tableau/
-├── reports/
-└── assets/
+flipkart-marketplace-intelligence/
+
+│── data/
+│── sql/
+│── python/
+│── tableau/
+│── reports/
+│── assets/
+│── README.md
 ```
 
 ---
 
 # 🚀 Expected Deliverables
 
-- SQL Analysis
+- SQL Scripts
 - Python Notebooks
 - Tableau Dashboard
 - Executive Summary
 - Business Insights
-- Business Recommendations
+- Executive Recommendations
+- AI-Assisted Business Report
 
 ---
 
@@ -173,25 +229,21 @@ amazon-marketplace-intelligence/
 - SQL
 - Python
 - Data Cleaning
+- Data Modeling
 - Exploratory Data Analysis
-- Data Visualization
-- Tableau
 - Business Intelligence
+- Tableau
 - Business Storytelling
+- Generative AI
 - Analytical Thinking
 
 ---
 
-# 📌 Project Status
-
-🚧 **In Progress**
-
-
----
 
 # 👨‍💻 Author
 
 **Ishan Mahesh Phadnis**
 
+Business Analyst | Data Analyst
 
-Building practical analytics projects using SQL, Python, Tableau, and Business Intelligence.
+Building enterprise-level analytics projects using SQL, Python, Tableau, and Generative AI.
