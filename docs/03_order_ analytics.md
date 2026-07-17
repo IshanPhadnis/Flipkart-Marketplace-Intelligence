@@ -553,3 +553,235 @@ ORDER BY customer_lifetime_value DESC;
 High-value customers should receive VIP benefits, personalized recommendations, and exclusive offers. Medium-value customers can be nurtured through targeted promotions, while low-value customers can be encouraged to increase spending through discounts and loyalty programs.
 
 # ==============================================================================
+
+
+# Q12. Rank Customers Based on Customer Lifetime Value (CLV)
+
+## 🎯 Objective
+
+Rank customers based on their total spending (Customer Lifetime Value) to identify the highest-value customers.
+
+## 💼 Business Value
+
+Ranking customers by their lifetime spending helps businesses:
+
+- Identify VIP customers.
+- Reward loyal customers with exclusive benefits.
+- Prioritize customer retention efforts.
+- Allocate marketing budgets more effectively.
+- Improve personalized recommendation strategies.
+
+## 🧠 Approach
+
+- Join the Customers, Orders, and Order Items tables.
+- Filter only delivered orders.
+- Calculate the Customer Lifetime Value (CLV) by summing the value of all purchased products.
+- Count the total number of orders placed by each customer.
+- Use the `DENSE_RANK()` window function to rank customers based on their CLV.
+
+## 💻 SQL
+
+```sql
+WITH customer_clv AS (
+    SELECT
+        o.customer_id,
+        CONCAT(c.first_name, ' ', c.last_name) AS full_name,
+        COUNT(DISTINCT o.order_id) AS total_orders,
+        SUM(oi.price * oi.quantity) AS customer_lifetime_value
+    FROM flipkart.customers c
+    JOIN flipkart.orders o
+        ON c.customer_id = o.customer_id
+    JOIN flipkart.order_items oi
+        ON o.order_id = oi.order_id
+    WHERE LOWER(o.status) = 'delivered'
+    GROUP BY
+        o.customer_id,
+        CONCAT(c.first_name, ' ', c.last_name)
+)
+
+SELECT
+    customer_id,
+    full_name,
+    total_orders,
+    customer_lifetime_value,
+    DENSE_RANK() OVER (ORDER BY customer_lifetime_value DESC) AS customer_rank
+FROM customer_clv
+ORDER BY customer_rank;
+```
+
+## 📝 Explanation
+
+- The CTE calculates each customer's total lifetime spending.
+- `SUM(oi.price * oi.quantity)` computes the total value of all products purchased by the customer.
+- `COUNT(DISTINCT o.order_id)` counts the number of unique delivered orders, preventing duplicate counts caused by joining with the `order_items` table.
+- `DENSE_RANK()` assigns the same rank to customers with equal CLV while ensuring there are no gaps in the ranking sequence.
+- Results are ordered from the highest-spending customer to the lowest.
+
+## 💡 Business Recommendation
+
+Businesses should focus on retaining top-ranked customers through VIP memberships, exclusive discounts, early product launches, and personalized marketing campaigns. Since acquiring new customers is typically more expensive than retaining existing ones, identifying high-value customers is essential for maximizing long-term profitability.
+
+# ==============================================================================
+
+# Q13. Top 3 Customers in Each City
+
+## 🎯 Objective
+
+Identify the top 3 highest-value customers in each city based on their Customer Lifetime Value (CLV).
+
+## 💼 Business Value
+
+Knowing the highest-spending customers within each city helps businesses:
+
+- Identify regional VIP customers.
+- Launch city-specific loyalty programs.
+- Personalize local marketing campaigns.
+- Allocate sales and customer success resources efficiently.
+- Understand regional purchasing behavior.
+
+## 🧠 Approach
+
+- Join the Customers, Orders, and Order Items tables.
+- Filter only delivered orders.
+- Calculate each customer's Customer Lifetime Value (CLV).
+- Use the `DENSE_RANK()` window function with `PARTITION BY city` to rank customers **within each city**.
+- Return only the top three customers from every city.
+
+## 💻 SQL
+
+```sql
+WITH customer_clv AS (
+    SELECT
+        o.customer_id,
+        c.city,
+        CONCAT(c.first_name, ' ', c.last_name) AS full_name,
+        SUM(oi.price * oi.quantity) AS customer_lifetime_value
+    FROM flipkart.customers c
+    JOIN flipkart.orders o
+        ON c.customer_id = o.customer_id
+    JOIN flipkart.order_items oi
+        ON o.order_id = oi.order_id
+    WHERE LOWER(o.status) = 'delivered'
+    GROUP BY
+        o.customer_id,
+        c.city,
+        CONCAT(c.first_name, ' ', c.last_name)
+),
+
+customer_rank AS (
+    SELECT *,
+           DENSE_RANK() OVER (
+               PARTITION BY city
+               ORDER BY customer_lifetime_value DESC
+           ) AS customer_rank
+    FROM customer_clv
+)
+
+SELECT *
+FROM customer_rank
+WHERE customer_rank <= 3
+ORDER BY city, customer_rank;
+```
+
+## 📝 Explanation
+
+- The first CTE calculates the Customer Lifetime Value (CLV) for every customer.
+- `SUM(oi.price * oi.quantity)` calculates the total value of all products purchased by each customer.
+- `DENSE_RANK()` ranks customers based on their CLV.
+- `PARTITION BY city` restarts the ranking for every city, allowing each city to have its own top customers.
+- Filtering with `customer_rank <= 3` returns only the top three customers from each city.
+- Results are ordered by city and customer rank for easy interpretation.
+
+## 💡 Business Recommendation
+
+Instead of rewarding only the company's overall highest-spending customers, businesses should identify their top customers within each city. This enables localized marketing campaigns, city-wise loyalty programs, personalized customer engagement, and better regional sales strategies.
+
+## 📚 Key SQL Concepts Learned
+
+- Common Table Expressions (CTEs)
+- Multi-table Joins
+- Aggregate Functions (`SUM()`)
+- Window Functions
+- `DENSE_RANK()`
+- `PARTITION BY`
+- Top N per Group Problem (One of the most common SQL interview questions)
+
+# # ==============================================================================
+
+# Q14. Percentage Contribution of Each Customer to Total Revenue
+
+## 🎯 Objective
+
+Calculate the percentage contribution of each customer to the company's total revenue based on their Customer Lifetime Value (CLV).
+
+## 💼 Business Value
+
+Understanding each customer's contribution to total revenue helps businesses:
+
+- Identify high-value customers driving the majority of sales.
+- Prioritize customer retention efforts.
+- Design tier-based loyalty programs.
+- Allocate marketing budgets more effectively.
+- Perform revenue concentration and Pareto (80/20) analysis.
+
+## 🧠 Approach
+
+- Calculate the Customer Lifetime Value (CLV) for each customer.
+- Use a window function to calculate the company's total revenue without collapsing the rows.
+- Compute each customer's percentage contribution using the formula:
+
+> **Revenue Contribution (%) = (Customer CLV / Total Company Revenue) × 100**
+
+- Round the result to two decimal places for better readability.
+
+## 💻 SQL
+
+```sql
+WITH total_spending AS (
+    SELECT
+        c.customer_id,
+        CONCAT(c.first_name, ' ', c.last_name) AS full_name,
+        SUM(o.amount) AS CLV
+    FROM flipkart.orders o
+    JOIN flipkart.customers c
+        ON o.customer_id = c.customer_id
+    GROUP BY
+        c.customer_id,
+        CONCAT(c.first_name, ' ', c.last_name)
+),
+
+revenue_summary AS (
+    SELECT *,
+           SUM(CLV) OVER () AS company_revenue
+    FROM total_spending
+)
+
+SELECT *,
+       ROUND((CLV / company_revenue) * 100, 2) AS revenue_percentage
+FROM revenue_summary
+ORDER BY revenue_percentage DESC;
+```
+
+## 📝 Explanation
+
+- The first CTE calculates each customer's Customer Lifetime Value (CLV).
+- `SUM(CLV) OVER()` computes the total revenue generated by all customers while keeping every customer row intact.
+- The revenue contribution percentage is calculated by dividing each customer's CLV by the company's total revenue and multiplying by 100.
+- `ROUND(..., 2)` formats the percentage to two decimal places.
+- Results are sorted from the highest revenue contributor to the lowest.
+
+## 💡 Business Recommendation
+
+Businesses should closely monitor customers contributing the largest share of revenue, as losing even a few of these customers can significantly impact overall sales. These customers should be targeted with personalized experiences, exclusive offers, loyalty rewards, and proactive customer support to maximize retention and long-term profitability.
+
+## 📚 Key SQL Concepts Learned
+
+- Common Table Expressions (CTEs)
+- Window Functions
+- `SUM() OVER()`
+- Aggregate Functions
+- Business KPI Calculations
+- Percentage Contribution Analysis
+- Revenue Distribution
+
+# ==============================================================================
