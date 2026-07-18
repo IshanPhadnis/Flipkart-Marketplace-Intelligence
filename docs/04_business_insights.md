@@ -177,6 +177,7 @@
 
 
  # ==============================================================================
+
 ## 6. Top 10 Customers by Customer Lifetime Value (CLV)
 
 ### 📊 Key Metrics
@@ -254,6 +255,47 @@
 
 <img width="2258" height="508" alt="image" src="https://github.com/user-attachments/assets/60ec6f94-725b-4c29-a0c7-29925c8ff989" />
 
+ # ==============================================================================
 
+## 8. Top 3 Customers in Each City
+
+### 📊 Key Metrics
+
+| Metric | Value |
+|---------|-------:|
+| **Cities Analyzed** | **11** |
+| **Customers Identified** | **24** |
+| **Highest City Leader Revenue** | **₹2,870,910 (Indore)** |
+| **Second Highest City Leader** | **₹2,801,159 (Bengaluru)** |
+| **City with Highest Ranked Customer** | **Indore** |
+| **City with Most Premium Customers** | **Bengaluru (Top 3 Customers)** |
+| **Highest Order Count** | **12 Orders (Siddharth Patel - Pune)** |
+
+---
+
+### 🔍 Key Insights
+
+- **Sneha Reddy** is the highest-value customer across all cities, generating **₹2.87M** in lifetime revenue for **Indore**.
+- **Tanvi Singh** leads **Bengaluru** with **₹2.80M**, while the city also has **three customers** among its local top performers, indicating a strong premium customer base.
+- **Siddharth Patel** from **Pune** recorded the **highest purchase frequency (12 orders)**, suggesting that frequent purchases significantly contribute to customer lifetime value.
+- Several cities, including **Ahmedabad, Chennai, Delhi, Lucknow, Mysuru, and Noida**, have only **one dominant customer**, indicating potential dependence on a limited customer base.
+- Customer value varies significantly across cities, highlighting the need for localized customer engagement and retention strategies.
+
+---
+
+### 💡 Business Recommendations
+
+- Launch city-specific loyalty programs targeting the highest-value customers in each location.
+- Increase marketing efforts in cities with only one major customer to broaden the high-value customer base.
+- Study purchasing behavior in **Indore** and **Bengaluru** to replicate successful customer acquisition strategies in other cities.
+- Reward high-frequency customers like **Siddharth Patel** with exclusive offers to improve retention.
+- Develop localized marketing campaigns instead of applying a single strategy across all cities.
+<img width="2558" height="1484" alt="image" src="https://github.com/user-attachments/assets/930ad309-d87a-4804-9ee5-4ce5f707ea94" />
+
+ # ==============================================================================
+
+ # ==============================================================================
+
+ # ==============================================================================
 
  # ==============================================================================
