@@ -1,249 +1,229 @@
-# 🛒 Flipkart Marketplace Intelligence
+# 📊 Flipkart E-Commerce Analytics
 
-> **End-to-End Business Analytics Project using SQL, Python, Tableau, and Generative AI**
+An end-to-end e-commerce analytics project built using **SQL**, **Google BigQuery**, and **Tableau** to solve real-world business problems across customer behavior, product performance, order trends, and business insights.
 
----
-
-# 📢 Executive Summary
-
-This project simulates the role of a Business Analyst working at Flipkart's Marketplace Analytics team.
-
-The objective is to analyze customer behavior, product performance, order trends, and return patterns to uncover actionable business insights that improve customer satisfaction, operational efficiency, and business performance.
-
-Using SQL, Python, Tableau, and Generative AI, this project follows the complete analytics lifecycle—from understanding business requirements to presenting executive-level recommendations.
+This project demonstrates how raw transactional data can be transformed into actionable business intelligence through advanced SQL queries, analytical thinking, and data visualization.
 
 ---
 
-# 🎯 Business Problem
+# 🚀 Project Overview
 
-Flipkart processes thousands of customer orders every day.
+The objective of this project was to analyze a simulated Flipkart marketplace dataset and answer key business questions that support strategic decision-making.
 
-Leadership wants to answer critical business questions such as:
+The analysis focuses on four major business domains:
 
-- Which products drive the most revenue?
-- Which products have unusually high return rates?
-- Which customers generate the highest lifetime value?
-- Which categories perform best?
-- Which products should receive additional marketing investment?
-- How can return rates be reduced?
-
-As the Business Analyst, my responsibility is to transform raw transactional data into actionable business insights that help leadership make data-driven decisions.
-
----
-
-# 📂 Dataset
-
-**Source:** Flipkart Marketplace Dataset
-
-The project uses multiple relational tables representing a real-world e-commerce marketplace.
-
-### Tables
-
-- Customers
-- Orders
-- Order Items
-- Products
-- Return Status
-
-This multi-table structure allows advanced SQL analysis using joins, CTEs, window functions, and business KPIs.
-
----
-
-# 🛠 Tech Stack
-
-- SQL (Google BigQuery)
-- Python
-- Pandas
-- Tableau Public
-- Git
-- GitHub
-- Generative AI (Documentation & Business Insights)
-
----
-
-# 📈 Project Workflow
-
-## Phase 1 — Business Understanding
-
-- Understand business requirements
-- Identify stakeholders
-- Define KPIs
-- Create business questions
-
----
-
-## Phase 2 — Data Modeling
-
-- Understand table relationships
-- Identify Primary Keys
-- Identify Foreign Keys
-- Build Entity Relationship Diagram (ERD)
-
----
-
-## Phase 3 — Data Cleaning
-
-- Handle missing values
-- Remove duplicates
-- Standardize columns
-- Validate relationships
-
----
-
-## Phase 4 — SQL Business Analysis
-
-Analyze business questions using:
-
-- Joins
-- CTEs
-- Window Functions
-- Aggregations
-- Ranking Functions
-
----
-
-## Phase 5 — Python Analysis
-
-- Exploratory Data Analysis
-- Customer Analysis
-- Product Analysis
-- Return Analysis
-- Feature Engineering
-
----
-
-## Phase 6 — Dashboard Development
-
-Build an executive Tableau dashboard to monitor marketplace performance.
-
----
-
-## Phase 7 — Executive Recommendations
-
-Present data-driven recommendations for leadership.
-
----
-
-# 📊 Key Performance Indicators (KPIs)
-
-### Sales KPIs
-
-- Total Revenue
-- Average Order Value (AOV)
-- Total Orders
-
-### Customer KPIs
-
-- Total Customers
-- Repeat Customer Rate
-- Customer Lifetime Value (Basic)
-
-### Product KPIs
-
-- Best Selling Products
-- Category Performance
-- Product Popularity
-
-### Returns KPIs
-
-- Return Rate
-- Return Rate by Category
-- Return Rate by Product
-
----
-
-# ❓ Business Questions
-
-This project aims to answer questions such as:
-
-### Customer Analytics
-
-- Who are our highest-value customers?
-- Which customers purchase most frequently?
-- Which customers have the highest return rates?
-
-### Product Analytics
-
-- Which products generate the highest revenue?
-- Which products sell the least?
-- Which categories perform best?
-
-### Order Analytics
-
-- What is the average order value?
-- Which months generate the highest sales?
-- Which customers place repeat orders?
-
-### Returns Analytics
-
-- Which products have the highest return rates?
-- Which categories experience the most returns?
-- Which customers frequently return products?
-
----
-
-# 🤖 Generative AI Integration
-
-Generative AI is used to assist with:
-
-- Business hypothesis generation
-- SQL optimization
-- Executive summaries
-- Business recommendations
-- Documentation
-
-All AI-generated outputs are manually validated before inclusion in the project.
-
----
-
-# 📁 Repository Structure
-
-```
-flipkart-marketplace-intelligence/
-
-│── data/
-│── sql/
-│── python/
-│── tableau/
-│── reports/
-│── assets/
-│── README.md
-```
-
----
-
-# 🚀 Expected Deliverables
-
-- SQL Scripts
-- Python Notebooks
-- Tableau Dashboard
-- Executive Summary
+- Customer Analytics
+- Product Analytics
+- Order Analytics
 - Business Insights
-- Executive Recommendations
-- AI-Assisted Business Report
+
+The project combines SQL-based analysis with Tableau visualizations to communicate findings and business recommendations.
+
+---
+
+# 🛠️ Tech Stack
+
+| Tool | Purpose |
+|------|----------|
+| SQL | Data Analysis |
+| Google BigQuery | Cloud Data Warehouse |
+| Tableau | Data Visualization |
+| GitHub | Version Control & Documentation |
+| Markdown | Project Documentation |
+
+---
+
+# 📂 Repository Structure
+
+```text
+Flipkart-Ecommerce-Analytics
+│
+├── README.md
+│
+└── docs
+    ├── Customer Analytics
+    ├── Product Analytics
+    ├── Order Analytics
+    └── Business Insights
+```
+
+---
+
+# 📚 Analytics Performed
+
+## 👥 Customer Analytics
+
+- Customer Lifetime Value (CLV)
+- Customer Segmentation
+- Customer Revenue Contribution
+- Customer Scorecard
+- Average Order Value (AOV)
+- Repeat Customer Analysis
+- Customer Ranking
+- Top Customers by Revenue
+- Top Customers by City
+
+---
+
+## 📦 Product Analytics
+
+- Top Revenue-Generating Products
+- Best-Selling Products
+- Highest Revenue Category
+- Product Portfolio Matrix
+- Pareto (80/20) Analysis
+- Return Rate Analysis
+- Product Rating Analysis
+- Profit Potential Score
+- Premium Product Analysis
+- Underrated Categories
+
+---
+
+## 🛒 Order Analytics
+
+- Monthly Revenue Trend
+- Month-over-Month Growth
+- Rolling Revenue Analysis
+- Revenue by Payment Method
+- Average Order Value
+- Revenue by City
+- Repeat Purchase Analysis
+
+---
+
+## 📈 Business Insights
+
+- Regional Revenue Analysis
+- Customer Segmentation Dashboard
+- Customer Lifetime Value Analysis
+- Revenue Contribution Analysis
+- Geographic Performance Analysis
+- Payment Method Analysis
+- Customer Distribution Analysis
+
+---
+
+# 🧠 SQL Concepts Demonstrated
+
+This project demonstrates practical use of:
+
+- INNER JOIN
+- LEFT JOIN
+- Common Table Expressions (CTEs)
+- Aggregate Functions
+- CASE Statements
+- Window Functions
+- RANK()
+- DENSE_RANK()
+- ROW_NUMBER()
+- LAG()
+- PARTITION BY
+- Rolling Window Calculations
+- GROUP BY
+- HAVING
+- Subqueries
+- Business KPI Calculations
+
+---
+
+# 📊 Tableau Visualizations
+
+The project includes visualizations for:
+
+- Customer Lifetime Value
+- Revenue Contribution
+- Customer Segmentation
+- Customer Distribution by City
+- Monthly Revenue Trend
+- Revenue by Payment Method
+- Regional Revenue Analysis
+- Top Customers
+
+---
+
+# 📌 Key Business Insights
+
+### 👥 Customer Analytics
+
+- Top **2 customers contributed 48.62%** of total revenue.
+- High-value customers generated **97.29%** of customer lifetime revenue.
+- Nearly **41%** of customers individually contributed less than **1%** of total revenue.
+
+### 📍 Regional Performance
+
+- Top **3 cities generated 44.93%** of overall revenue.
+- Bengaluru was the highest-performing city, contributing **17.83%** of total revenue.
+
+### 💳 Payment Analysis
+
+- UPI generated **32.88%** of marketplace revenue.
+- Digital payment methods contributed nearly **59%** of total revenue.
+
+### 📈 Revenue Trends
+
+- Analysis covers **31 months** of transaction history.
+- Highest monthly revenue reached **₹894,366**.
+- Latest Month-over-Month revenue growth recorded **53.15%**.
+
+---
+
+# 💡 Business Recommendations
+
+- Strengthen retention initiatives for high-value customers.
+- Expand successful regional strategies into lower-performing cities.
+- Increase investment in top-performing product categories.
+- Improve quality control for products with high return rates.
+- Promote digital payment adoption through targeted incentives.
+- Leverage customer segmentation for personalized marketing campaigns.
 
 ---
 
 # 💼 Skills Demonstrated
 
 - SQL
-- Python
-- Data Cleaning
-- Data Modeling
-- Exploratory Data Analysis
-- Business Intelligence
+- Google BigQuery
 - Tableau
+- Business Analytics
+- Customer Analytics
+- Product Analytics
+- Sales Analytics
+- KPI Development
+- Data Visualization
 - Business Storytelling
-- Generative AI
+- Dashboard Development
 - Analytical Thinking
 
 ---
 
+# 📊 Project Summary
 
-# 👨‍💻 Author
+| Metric | Value |
+|---------|------:|
+| Business Questions Solved | 45+ |
+| SQL Queries Written | 45+ |
+| Tableau Visualizations | 8+ |
+| Relational Tables Analyzed | 6 |
+| Analytics Domains | 4 |
+| Business Insights Generated | 100+ |
+
+---
+
+# 🎯 Learning Outcomes
+
+Through this project, I strengthened my ability to:
+
+- Solve real-world business problems using SQL.
+- Write production-style analytical queries.
+- Work with relational datasets in Google BigQuery.
+- Build business-focused Tableau visualizations.
+- Translate data into actionable business recommendations.
+- Present technical findings in a structured and stakeholder-friendly format.
+
+---
+
+## 👨‍💻 Author
 
 **Ishan Mahesh Phadnis**
 
-Business Analyst | Data Analyst
-
-Building enterprise-level analytics projects using SQL, Python, Tableau, and Generative AI.
+If you found this project interesting, feel free to connect with me on LinkedIn or explore the repository.
